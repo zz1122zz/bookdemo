@@ -59,7 +59,7 @@ public class PersistenceConfig{
 
 		sqlSessionFactoryBean.setDataSource(dataSource());
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:org/creation/demo/entity/*Mapper.xml"));
+		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:org/creation/demo/entity/**/*Mapper.xml"));
 
 		return sqlSessionFactoryBean.getObject();
 	}

@@ -2,9 +2,6 @@ package org.creation.demo.entity.base;
 
 import java.util.List;
 
-import org.creation.demo.entity.bookdemo.NumericProperty;
-import org.creation.demo.entity.bookdemo.StringProperty;
-
 /** 
 * @author 作者 LiuPeng E-mail: 
 * @version 创建时间：2018年5月8日 下午2:15:38 

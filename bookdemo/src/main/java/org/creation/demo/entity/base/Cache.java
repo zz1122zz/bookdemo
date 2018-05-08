@@ -1,4 +1,4 @@
-package org.creation.demo.entity;
+package org.creation.demo.entity.base;
 
 import java.util.Date;
 import java.io.Serializable;

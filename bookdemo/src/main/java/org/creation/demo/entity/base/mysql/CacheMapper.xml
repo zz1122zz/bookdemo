@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.creation.demo.entity.CacheMapper" >
+<mapper namespace="org.creation.demo.entity.base.CacheMapper" >
 	<cache  eviction="FIFO"   size="1024"  readOnly="true"/>
    <!-- flushInterval="60000" -->
-  <resultMap id="BaseResultMap" type="org.creation.demo.entity.Cache" >
+  <resultMap id="BaseResultMap" type="org.creation.demo.entity.base.Cache" >
     <id column="name" property="name" jdbcType="VARCHAR" />
     <result column="value" property="value" jdbcType="VARCHAR" />
     <result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     name, value, expire_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.creation.demo.entity.CacheCriteria" flushCache="true" useCache="true">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.creation.demo.entity.base.CacheCriteria" flushCache="true" useCache="true">
     select
     <if test="distinct" >
       distinct
@@ -96,19 +96,19 @@
     delete from cache
     where name = #{name,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="org.creation.demo.entity.CacheCriteria" >
+  <delete id="deleteByExample" parameterType="org.creation.demo.entity.base.CacheCriteria" >
     delete from cache
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="org.creation.demo.entity.Cache"  flushCache="true">
+  <insert id="insert" parameterType="org.creation.demo.entity.base.Cache"  flushCache="true">
     insert into cache (name, value, expire_time
       )
     values (#{name,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}, #{expireTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="org.creation.demo.entity.Cache"  flushCache="true">
+  <insert id="insertSelective" parameterType="org.creation.demo.entity.base.Cache"  flushCache="true">
     insert into cache
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="name != null" >
@@ -134,7 +134,7 @@
     </trim>
   </insert>
   
-   <insert id="replaceSelective" parameterType="org.creation.demo.entity.Cache"  flushCache="true">
+   <insert id="replaceSelective" parameterType="org.creation.demo.entity.base.Cache"  flushCache="true">
     replace into cache
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="name != null" >
@@ -160,7 +160,7 @@
     </trim>
   </insert>
   
-  <select id="countByExample" parameterType="org.creation.demo.entity.CacheCriteria" resultType="java.lang.Integer"  flushCache="true">
+  <select id="countByExample" parameterType="org.creation.demo.entity.base.CacheCriteria" resultType="java.lang.Integer"  flushCache="true">
     select count(*) from cache
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -192,7 +192,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="org.creation.demo.entity.Cache"  flushCache="true">
+  <update id="updateByPrimaryKeySelective" parameterType="org.creation.demo.entity.base.Cache"  flushCache="true">
     update cache
     <set >
       <if test="value != null" >
@@ -204,13 +204,13 @@
     </set>
     where name = #{name,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.creation.demo.entity.Cache"  flushCache="true">
+  <update id="updateByPrimaryKey" parameterType="org.creation.demo.entity.base.Cache"  flushCache="true">
     update cache
     set value = #{value,jdbcType=VARCHAR},
       expire_time = #{expireTime,jdbcType=TIMESTAMP}
     where name = #{name,jdbcType=VARCHAR}
   </update>
-  <select resultMap="BaseResultMap" parameterType="org.creation.demo.entity.CacheCriteria" id="selectByExampleWithRowbounds" flushCache="false" useCache="true">
+  <select resultMap="BaseResultMap" parameterType="org.creation.demo.entity.base.CacheCriteria" id="selectByExampleWithRowbounds" flushCache="false" useCache="true">
     select
     <if test="distinct" >
       distinct

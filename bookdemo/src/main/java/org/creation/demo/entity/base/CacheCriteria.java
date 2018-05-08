@@ -1,9 +1,11 @@
-package org.creation.demo.entity.bookdemo;
+package org.creation.demo.entity.base;
+
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class NumericPropertyCriteria {
+public class CacheCriteria {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -14,7 +16,7 @@ public class NumericPropertyCriteria {
 
     protected int limitEnd = -1;
 
-    public NumericPropertyCriteria() {
+    public CacheCriteria() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -124,126 +126,6 @@ public class NumericPropertyCriteria {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andUniquePropertyCodeIsNull() {
-            addCriterion("unique_property_code is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeIsNotNull() {
-            addCriterion("unique_property_code is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeEqualTo(Long value) {
-            addCriterion("unique_property_code =", value, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeNotEqualTo(Long value) {
-            addCriterion("unique_property_code <>", value, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeGreaterThan(Long value) {
-            addCriterion("unique_property_code >", value, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeGreaterThanOrEqualTo(Long value) {
-            addCriterion("unique_property_code >=", value, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeLessThan(Long value) {
-            addCriterion("unique_property_code <", value, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeLessThanOrEqualTo(Long value) {
-            addCriterion("unique_property_code <=", value, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeIn(List<Long> values) {
-            addCriterion("unique_property_code in", values, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeNotIn(List<Long> values) {
-            addCriterion("unique_property_code not in", values, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeBetween(Long value1, Long value2) {
-            addCriterion("unique_property_code between", value1, value2, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniquePropertyCodeNotBetween(Long value1, Long value2) {
-            addCriterion("unique_property_code not between", value1, value2, "uniquePropertyCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeIsNull() {
-            addCriterion("unique_entity_code is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeIsNotNull() {
-            addCriterion("unique_entity_code is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeEqualTo(Long value) {
-            addCriterion("unique_entity_code =", value, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeNotEqualTo(Long value) {
-            addCriterion("unique_entity_code <>", value, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeGreaterThan(Long value) {
-            addCriterion("unique_entity_code >", value, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeGreaterThanOrEqualTo(Long value) {
-            addCriterion("unique_entity_code >=", value, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeLessThan(Long value) {
-            addCriterion("unique_entity_code <", value, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeLessThanOrEqualTo(Long value) {
-            addCriterion("unique_entity_code <=", value, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeIn(List<Long> values) {
-            addCriterion("unique_entity_code in", values, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeNotIn(List<Long> values) {
-            addCriterion("unique_entity_code not in", values, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeBetween(Long value1, Long value2) {
-            addCriterion("unique_entity_code between", value1, value2, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andUniqueEntityCodeNotBetween(Long value1, Long value2) {
-            addCriterion("unique_entity_code not between", value1, value2, "uniqueEntityCode");
-            return (Criteria) this;
-        }
-
         public Criteria andNameIsNull() {
             addCriterion("name is null");
             return (Criteria) this;
@@ -324,58 +206,193 @@ public class NumericPropertyCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andValueEqualTo(Long value) {
+        public Criteria andValueEqualTo(String value) {
             addCriterion("value =", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueNotEqualTo(Long value) {
+        public Criteria andValueNotEqualTo(String value) {
             addCriterion("value <>", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueGreaterThan(Long value) {
+        public Criteria andValueGreaterThan(String value) {
             addCriterion("value >", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueGreaterThanOrEqualTo(Long value) {
+        public Criteria andValueGreaterThanOrEqualTo(String value) {
             addCriterion("value >=", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueLessThan(Long value) {
+        public Criteria andValueLessThan(String value) {
             addCriterion("value <", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueLessThanOrEqualTo(Long value) {
+        public Criteria andValueLessThanOrEqualTo(String value) {
             addCriterion("value <=", value, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueIn(List<Long> values) {
+        public Criteria andValueLike(String value) {
+            addCriterion("value like", value, "value");
+            return (Criteria) this;
+        }
+
+        public Criteria andValueNotLike(String value) {
+            addCriterion("value not like", value, "value");
+            return (Criteria) this;
+        }
+
+        public Criteria andValueIn(List<String> values) {
             addCriterion("value in", values, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueNotIn(List<Long> values) {
+        public Criteria andValueNotIn(List<String> values) {
             addCriterion("value not in", values, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueBetween(Long value1, Long value2) {
+        public Criteria andValueBetween(String value1, String value2) {
             addCriterion("value between", value1, value2, "value");
             return (Criteria) this;
         }
 
-        public Criteria andValueNotBetween(Long value1, Long value2) {
+        public Criteria andValueNotBetween(String value1, String value2) {
             addCriterion("value not between", value1, value2, "value");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeIsNull() {
+            addCriterion("expire_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeIsNotNull() {
+            addCriterion("expire_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeEqualTo(Date value) {
+            addCriterion("expire_time =", value, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeNotEqualTo(Date value) {
+            addCriterion("expire_time <>", value, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeGreaterThan(Date value) {
+            addCriterion("expire_time >", value, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("expire_time >=", value, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeLessThan(Date value) {
+            addCriterion("expire_time <", value, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeLessThanOrEqualTo(Date value) {
+            addCriterion("expire_time <=", value, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeIn(List<Date> values) {
+            addCriterion("expire_time in", values, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeNotIn(List<Date> values) {
+            addCriterion("expire_time not in", values, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeBetween(Date value1, Date value2) {
+            addCriterion("expire_time between", value1, value2, "expireTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andExpireTimeNotBetween(Date value1, Date value2) {
+            addCriterion("expire_time not between", value1, value2, "expireTime");
             return (Criteria) this;
         }
 
         public Criteria andNameLikeInsensitive(String value) {
             addCriterion("upper(name) like", value.toUpperCase(), "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andValueLikeInsensitive(String value) {
+            addCriterion("upper(value) like", value.toUpperCase(), "value");
             return (Criteria) this;
         }
     }

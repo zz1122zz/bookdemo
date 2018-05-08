@@ -5,8 +5,8 @@ import java.util.concurrent.ExecutionException;
 
 import javax.annotation.Resource;
 
-import org.creation.demo.entity.Cache;
-import org.creation.demo.entity.CacheMapper;
+import org.creation.demo.entity.base.Cache;
+import org.creation.demo.entity.base.mapper.CacheMapper;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
