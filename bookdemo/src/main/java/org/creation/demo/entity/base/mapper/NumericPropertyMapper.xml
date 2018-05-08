@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.creation.demo.entity.base.mysql.NumericPropertyMapper" >
+  <resultMap id="BaseResultMap" type="org.creation.demo.entity.base.NumericProperty" >
+    <id column="unique_property_code" property="uniquePropertyCode" jdbcType="BIGINT" />
+    <result column="unique_entity_code" property="uniqueEntityCode" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="value" property="value" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    unique_property_code, unique_entity_code, name, value
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.creation.demo.entity.base.NumericPropertyCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from numeric_property
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>-1" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from numeric_property
+    where unique_property_code = #{uniquePropertyCode,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from numeric_property
+    where unique_property_code = #{uniquePropertyCode,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.creation.demo.entity.base.NumericPropertyCriteria" >
+    delete from numeric_property
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.creation.demo.entity.base.NumericProperty" >
+    insert into numeric_property (unique_property_code, unique_entity_code, 
+      name, value)
+    values (#{uniquePropertyCode,jdbcType=BIGINT}, #{uniqueEntityCode,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{value,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.creation.demo.entity.base.NumericProperty" >
+    insert into numeric_property
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uniquePropertyCode != null" >
+        unique_property_code,
+      </if>
+      <if test="uniqueEntityCode != null" >
+        unique_entity_code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uniquePropertyCode != null" >
+        #{uniquePropertyCode,jdbcType=BIGINT},
+      </if>
+      <if test="uniqueEntityCode != null" >
+        #{uniqueEntityCode,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.creation.demo.entity.base.NumericPropertyCriteria" resultType="java.lang.Integer" >
+    select count(*) from numeric_property
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update numeric_property
+    <set >
+      <if test="record.uniquePropertyCode != null" >
+        unique_property_code = #{record.uniquePropertyCode,jdbcType=BIGINT},
+      </if>
+      <if test="record.uniqueEntityCode != null" >
+        unique_entity_code = #{record.uniqueEntityCode,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.value != null" >
+        value = #{record.value,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update numeric_property
+    set unique_property_code = #{record.uniquePropertyCode,jdbcType=BIGINT},
+      unique_entity_code = #{record.uniqueEntityCode,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      value = #{record.value,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.creation.demo.entity.base.NumericProperty" >
+    update numeric_property
+    <set >
+      <if test="uniqueEntityCode != null" >
+        unique_entity_code = #{uniqueEntityCode,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null" >
+        value = #{value,jdbcType=BIGINT},
+      </if>
+    </set>
+    where unique_property_code = #{uniquePropertyCode,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.creation.demo.entity.base.NumericProperty" >
+    update numeric_property
+    set unique_entity_code = #{uniqueEntityCode,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      value = #{value,jdbcType=BIGINT}
+    where unique_property_code = #{uniquePropertyCode,jdbcType=BIGINT}
+  </update>
+  <insert id="batchInsert">
+    <if test="items.get(0) != null">
+            insert into numeric_property  (unique_property_code, unique_entity_code, 
+        name, value)
+      values
+      <foreach collection="items" item="item" index="index" separator=",">
+      (#{item.uniquePropertyCode,jdbcType=BIGINT}, #{item.uniqueEntityCode,jdbcType=BIGINT}, 
+        #{item.name,jdbcType=VARCHAR}, #{item.value,jdbcType=BIGINT})
+      </foreach>
+    </if>
+  </insert>
+  <select resultMap="BaseResultMap" parameterType="org.creation.demo.entity.base.NumericPropertyCriteria" id="selectByExampleWithRowbounds" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from numeric_property
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>-1" >
+      limit ${limitStart} , ${limitEnd}
+    </if>
+  </select>
+</mapper>
